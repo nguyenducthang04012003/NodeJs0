@@ -1,0 +1,27 @@
+{
+  "name": "full-backend-zero",
+  "version": "1.0.0",
+  "description": "FullStack Backend NodeJs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nguyenducthang04012003/NodeJs0.git"
+  },
+  "keywords": [
+    "nodejs",
+    "react"
+  ],
+  "author": "NguyenThang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nguyenducthang04012003/NodeJs0/issues"
+  },
+  "homepage": "https://github.com/nguyenducthang04012003/NodeJs0#readme",
+  "dependencies": {
+    "express": "4.18.2"
+  }
+}
