@@ -1,8 +1,8 @@
 require("dotenv").config();
-const mysql = require("mysql2");
 const express = require("express");
 const configViewEngin = require('./config/viewEngine')
 const webRoutes = require('./routes/web');
+const connection = require('./config/database');
 
 const app = express();
 const port = process.env.PORT || 8888;
@@ -13,15 +13,6 @@ configViewEngin(app);
 
 //khai bao route
 app.use('/' , webRoutes);
-
-//test conection
-const connection = mysql.createConnection({
-  host: "localhost",
-  port: 3307,
-  user: "root",
-  password: "123456",
-  database: "hoidanit",
-});
 
 // execute will internally call prepare and query
 connection.execute(
