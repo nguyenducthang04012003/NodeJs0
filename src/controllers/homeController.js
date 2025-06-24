@@ -1,38 +1,37 @@
+const { render } = require("ejs");
 const connection = require("../config/database");
-const { use } = require("../routes/web");
+const {getAllUsers} = require("../services/CRUDService");
 
-const getHomePage = (req, res) => {
-  return res.render('home.ejs')
+const getHomePage = async (req, res) => {
+  const results = await getAllUsers();
+  return res.render("home.ejs", { data: results});
 };
 
 const getHoiIt = (req, res) => {
   res.render("sample.ejs");
 };
 
-const postCreateuser = (req, res) => {
+const postCreateuser = async (req, res) => {
   let email = req.body.email;
   let name = req.body.name;
   let city = req.body.city;
   // let { email, name, city } = req.body;
 
-  connection.query(
+  const [results, fields] = await connection.query(
     `INSERT INTO users  (email, name, city)
     VALUES (?, ?, ?)`,
-    [email, name, city],
-    function (err, results) {
-      if (err) {
-        console.error('Lỗi khi thêm user:', err);
-        return res.status(500).send('Lỗi server khi tạo user');
-      }
-
-      console.log('Kết quả:', results);
-      res.send('Tạo user thành công');
-    }
+    [email, name, city]
   );
+  res.send("Tạo user thành công");
+};
+
+const getCreatePage = (req, res) => {
+  res.render("create.ejs");
 };
 
 module.exports = {
   getHomePage,
   getHoiIt,
   postCreateuser,
+  getCreatePage,
 };

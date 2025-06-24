@@ -87,3 +87,28 @@ br {
   background-color: #04AA6D;
   color: white;
 }
+
+table {
+  width: 100%;
+  padding: 0px 20px;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color: rgb(174, 230, 233);
+}
+
+.title-table{
+  font-size: 25px;
+  font-weight: bold;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

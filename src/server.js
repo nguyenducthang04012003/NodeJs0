@@ -17,15 +17,6 @@ configViewEngin(app);
 //khai bao route
 app.use('/' , webRoutes);
 
-// // execute will internally call prepare and query
-// connection.execute(
-//   "SELECT * FROM users u",
-//   ["Rick C-137", 53],
-//   function (err, results, fields) {
-//     console.log(".>>>>",results); // results contains rows returned by server
-//   }
-// );
-
 app.listen(port, hostname, () => {
   console.log(`Example app listening on port ${port}`);
 });
